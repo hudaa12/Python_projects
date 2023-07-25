@@ -16,20 +16,21 @@ side effect: not printing
 
 3. Create examples:
 
-Given a text of "Hello, there!"
-Returns = True 
+"""Given a text of "Hello, there!"
+Returns = True"""
 
-
-Given a text of "hi, what is your name"
+Given a text of "Hello world,"
 Return = False 
+
+""Given a text of "hi, what is your name"
+Return = False"""
 
 
 Given a text of "hello world!"
 Return = False 
 
 
-Given a text of "Hello world,"
-Return = False 
+
 
 
 4. Implement the Behaviour
