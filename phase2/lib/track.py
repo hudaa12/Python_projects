@@ -13,6 +13,5 @@ class Track:
         self.artist = artist
 
     def format(self):
-        # Returns:
-        #   a string in the format "TITLE by ARTIST"
-        pass
+        return f'{self.title} by {self.artist}'
+        
