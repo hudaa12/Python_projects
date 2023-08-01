@@ -1,29 +1,27 @@
 # File: lib/diary.py
 
+import math
 class Diary:
     def __init__(self):
-        pass
+        self.log = []
 
     def add(self, entry):
-        # Parameters:
-        #   entry: an instance of DiaryEntry
-        # Returns:
-        #   Nothing
-        # Side-effects:
-        #   Adds the entry to the entries list
-        pass
+        
+        self.log.append(entry)
 
     def all(self):
-        # Returns:
-        #   A list of instances of DiaryEntry
-        pass
+        return self.log
+        
 
     def count_words(self):
         # Returns:
         #   An integer representing the number of words in all diary entries
         # HINT:
         #   This method should make use of the `count_words` method on DiaryEntry.
-        pass
+        total = 0
+        for entry in self.log:
+            total += entry.count_words()
+            return total
 
     def reading_time(self, wpm):
         # Parameters:
@@ -32,8 +30,8 @@ class Diary:
         # Returns:
         #   An integer representing an estimate of the reading time in minutes
         #   if the user were to read all entries in the diary.
-        pass
-
+        word_count = self.count_words()
+        return math.ceil(word_count / wpm)
     def find_best_entry_for_reading_time(self, wpm, minutes):
         # Parameters:
         #   wpm:     an integer representing the number of words the user can
