@@ -37,4 +37,6 @@ class DiaryEntry:
         # If called again, `reading_chunk` should return the next chunk,
         # skipping what has already been read, until the contents is fully read.
         # The next call after that it should restart from the beginning.
-        pass
+        readable_chunk_length = wpm * minutes
+        words = self.contents.split()
+        return " ".join(words[:readable_chunk_length])

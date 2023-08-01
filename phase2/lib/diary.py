@@ -32,6 +32,7 @@ class Diary:
         #   if the user were to read all entries in the diary.
         word_count = self.count_words()
         return math.ceil(word_count / wpm)
+    
     def find_best_entry_for_reading_time(self, wpm, minutes):
         # Parameters:
         #   wpm:     an integer representing the number of words the user can
@@ -42,5 +43,10 @@ class Diary:
         #   An instance of DiaryEntry representing the entry that is closest to,
         #   but not over, the length that the user could read in the minutes
         #   they have available given their reading speed.
-        pass
+        words_the_user_could_read = wpm * minutes
+        readable_entries = []
+        for entry in self.log:
+            if entry.count_words() >= words_the_user_could_read:
+                readable_entries.append(entry)
+            return readable_entries[0]
 

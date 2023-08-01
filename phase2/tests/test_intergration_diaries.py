@@ -34,9 +34,21 @@ def test_count_words_all():
     assert diary.count_words() == 3
 
 
-def test_reading_time():
+def test_reading_time_all_entries():
     diary = Diary()
     first = DiaryEntry('Go Study!', 'Golden Square happy')
     diary.add(first)
     first.count_words()
     assert first.reading_time(3) == 1
+
+def test_find_the_best_entry_for_reading_time():
+    diary = Diary()
+    first = DiaryEntry('Go Study!', 'Golden Square happy days today and tomorrow')
+    diary.add(first)
+    first.count_words()
+    assert diary.find_best_entry_for_reading_time(2,3) == first
+
+def test_readable_chunk():
+    diary_entry = DiaryEntry('Go Study!', 'Golden Square happy days today and tomorrow')
+    assert diary_entry.reading_chunk(2,1) == "Golden Square"
+
