@@ -2,7 +2,7 @@ import pytest
 from lib.track_tasks import *
 
 """
-initially, there are no taks 
+initially, there are no task 
 """
 def test_init_has_no_tasks():
     tracker = TrackTasks()

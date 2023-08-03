@@ -13,8 +13,9 @@ class DiaryEntry:
         
 
     def count_words(self):
-        
         return len(self.contents.split())
+    
+
     def reading_time(self, wpm):
         # Parameters:
         #   wpm: an integer representing the number of words the user can read
