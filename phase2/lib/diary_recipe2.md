@@ -123,13 +123,14 @@ class ReadableEntryFinder():
     pass
 
 
-
 3. Create Examples as Integration Tests
 Create examples of the classes being used together in different situations and combinations that reflect the ways in which the system will be used.
 
 # EXAMPLE
 
 """
+list past diary entries 
+return as a list
 
 """
 
