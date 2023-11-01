@@ -104,24 +104,88 @@ List of phone numbers
 Also design the interface of each class in more detail.
 
 class Diary:
-    pass
+    def add(self, diary_entry):
+        # diary_entry: instance of DiaryEntry
+        # returns nothing
+        # side-effects: adds to list of diary entries
+        pass
+
+    def all(self):
+        # returns all DiaryEntry instances
+        pass
 
 class DiaryEntry():
-    pass
+    # public properties
+        # title: a string representing an entry title
+        # contents: a string representing entry contents
+    
+    def __init__(self, title, contents)
+        # title: a string representing an entry title
+        # contents: a string representing entry contents
+        # side-effects: sets the above properties
+        pass
+
 
 class TaskList():
+    def add(self, task)
+        # task: an instance of task 
+        # returns nothing
+        # side-effect: adds to list of tasks
+        pass
+
+    def all _incomplete(self):
+        #   returns a list of instances of task
+        #   representing the incomplete tasks
+        pass 
+
+    def all_complete(Self):
+        #   returns a list of instances of task
+        #   representing the complete tasks
+        pass
+    
+    
+    
+class Task():
+    # public properties
+    # title: a string representing a job to do
+    def __init__(self, job):
+        # title: astring representing a job to do
+        # side-effect: sets title property
     pass
 
-class Task:
+    def mark_complete(self):
+        # side-effect: marks the task as complete
+        # returns nothing 
     pass
 
 class PhoneNumberExtractor():
+def __init__(Self, diary):
+    # diary: an instance of Diary
+    # side-effect: set diary property
+    pass
+
+    def extract(self):
+    # diary: an instances of diary 
+    # returns a list if strings representing
+    # a list of phone numbers
     pass
 
 
 class ReadableEntryFinder():
+def __init__(Self, diary):
+    # diary: an instance of Diary
+    # side-effect: set diary property
     pass
 
+    def extract(self, wpm, minutes):
+    # wpm: integer
+    # minutes: integer
+    # returns the longest diary entry that can be read
+    # in the time given the wpm and minutes 
+    pass
+
+    # 
+    pass
 
 3. Create Examples as Integration Tests
 Create examples of the classes being used together in different situations and combinations that reflect the ways in which the system will be used.
@@ -129,16 +193,81 @@ Create examples of the classes being used together in different situations and c
 # EXAMPLE
 
 """
-list past diary entries 
-return as a list
-
+when i add multiple diary entries
+all lists them out in order they were added
+"""
+diary  = Diary()
+entry_1 = DiaryEntry("My title , "My contents 1")
+entry_2 = DiaryEntry("My title , "My contents 2")
+entry_3 = DiaryEntry("My title , "My contents 3")
+diary.add(entry1)
+diary.add(entry2)
+diary.add(entry3)
+diary.all() # => [entry_1, entry_2, entry_3]
 """
 
 """
+when i add multiple tasks
+and i dont mark any complete  
+all_incomplete lists them out in order they were added
+"""
+task_lsit = TaskList()
+task_1 = Task("Walk the horse")
+task_2 = Task("Walk the dog")
+task_3 = Task("Walk the cat")
+task_list.add(task_1)
+task_list.add(task_2)
+task_list.add(task_3)
+task_list.all_incomplete() # => [task_1, task_2, task_3]
 
 """
+when i add multiple tasks
+And i mark one is complete 
+all_incomplete only lists the incomplete tasks
+"""
+task_lsit = TaskList()
+task_1 = Task("Walk the horse")
+task_2 = Task("Walk the dog")
+task_3 = Task("Walk the cat")
+task_list.add(task_1)
+task_list.add(task_2)
+task_list.add(task_3)
+task_2.mark_complete()
+task_list.all_incomplete() # => [task_1, task_3]
+
 
 """
+when i add multiple tasks
+And i mark one is complete 
+all_complete only lists the complete tasks
+"""
+task_lsit = TaskList()
+task_1 = Task("Walk the horse")
+task_2 = Task("Walk the dog")
+task_3 = Task("Walk the cat")
+task_list.add(task_1)
+task_list.add(task_2)
+task_list.add(task_3)
+task_2.mark_complete()
+task_list.all_complete() # => [task_2]
+
+
+"""
+when i add multiple diary entries
+And I call Phone
+"""
+diary  = Diary()
+entry_1 = DiaryEntry("My title , "My contents 1")
+entry_2 = DiaryEntry("My title , "My contents 2")
+entry_3 = DiaryEntry("My title , "My contents 3")
+diary.add(entry1)
+diary.add(entry2)
+diary.add(entry3)
+diary.all() # => [entry_1, entry_2, entry_3]
+
+
+
+
 
 """
 
@@ -148,9 +277,47 @@ Create examples, where appropriate, of the behaviour of each relevant class at a
 # EXAMPLE
 
 """
+Initially, dIARY HAS NO ENTRIES
+"""
+diary =  Diary()
+diray.all() # => []
 
+# DiaryEntry
+"""
+diaryEntry is constructed with a title and contents
 """
 
+entry = DiaryEntry("My title", "My contents")
+entry.title # => "My title"
+entry.contents # => "My contents"
+
+# TaskList 
+"""
+Inititally, TaskList has no incomplete tasks
+"""
+task_lsit = TaskList()
+taski_list.all_incomplete() # => []
+
+
+# TaskList 
+"""
+Inititally, TaskList has no complete tasks
+"""
+task_lsit = TaskList()
+taski_list.all_incomplete() # => []
+
+
+
+
+
+
+
+# Task
+"""
+Task constructs with a title
+"""
+task = Task("Walk the horse")
+task.title # => "Walk the horse"
 
 5. Implement the Behaviour
 After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour.
